@@ -105,16 +105,58 @@ response = requests.request("PUT", url, data=payload, headers=headers, params=qu
 }
 ```
 ## Для запуска проекта:
-- Создать файл `.env` на примере `.env.example.`;
-- Из папки с `docker-compose.yaml` выполнить команду - `sudo docker-compose up -d --build`;
-- Для создания суперпользователя, выполните в командной строке:
-```  
-sudo docker exec -it web sh
+### Activate virtualenv by pipenv
+
+To install pipenv:
+
 ```
-Далее создайте суперпользователя:
-``` 
-python manage.py createsuperuser
-``` 
+pip install pipenv
+```
+
+To install dependencies use:
+
+```
+pipenv install -r requirements.txt
+```
+
+To run virtualenv run:
+
+```
+source $(pipenv --venv)/bin/activate
+```
+
+or:
+
+```
+pipenv shell
+```
+1) с помощью Docker:
+   - Создать файл `.env` на примере `.env.example.`;
+   - Из папки с `docker-compose.yaml` выполнить команду - `sudo docker-compose up -d --build`;
+   - Для создания суперпользователя, выполните в командной строке:
+   ```shell  
+   sudo docker exec -it web sh
+   ```
+   Далее создайте суперпользователя:
+   ```shell 
+   python manage.py createsuperuser
+   ```
+2) Вручную:
+   ```shell
+   python manage.py makemigrations
+   ```
+   
+   ```shell
+   python manage.py migrate
+   ```
+   
+   ```shell
+   python manage.py createsuperuser --email admin@example.com --username admin
+   ```
+   ```shell
+   python manage.py runserver
+   ```
+также нужно иметь установленный PostgreSQL, создать БД и прописать параметры подключения к ней в `.env` файле
 # Начало работы
 Сервис будет доступен по адресу `0.0.0.0:80`.
 

@@ -93,7 +93,7 @@ if VERSION == 'local':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': "test_crossconf",
+            'NAME': "test_ski",
             'USER': 'postgres',
             'PASSWORD': '1234',
             'HOST': 'localhost',
