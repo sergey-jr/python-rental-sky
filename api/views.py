@@ -8,9 +8,12 @@ from api.serializers import SkiInputSerializer
 from api.utils import get_order, extract_ski_data, make_order
 
 
-@swagger_auto_schema(methods=['get'], request_body=SkiInputSerializer)
+@swagger_auto_schema(methods=['get'], query_serializer=SkiInputSerializer())
 @api_view(['GET'])
 def ski_rent(request):
+    """
+    Метод выполняет заявку на провоз лыж
+    """
     serializer = SkiInputSerializer(data=request.query_params)
     if serializer.is_valid():
         data = serializer.data
