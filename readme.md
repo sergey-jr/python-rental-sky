@@ -164,6 +164,6 @@ pipenv shell
 Сервис предоставляет единственный эндпойнт - `/api/`. На этот эндпойнт необходимо выполнять
 `GET`-запрос с параметрами `id` и `last_name`. Например:
 
-`http://0.0.0.0:8000/?last_name=ivanov&id=AAAAAA`
+`http://localhost:80/?last_name=ivanov&id=AAAAAA`
 
 Оба параметра обязательные.
